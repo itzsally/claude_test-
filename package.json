@@ -3,10 +3,11 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "The Reading Room — a calm, editorial digital library for discovering books.",
+  "description": "The Reading Room \u2014 a calm, editorial digital library for discovering books.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:artifact": "vite build --mode artifact && node scripts/build-artifact.mjs",
     "preview": "vite preview",
     "typecheck": "tsc -b"
   },
