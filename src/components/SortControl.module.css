@@ -1,0 +1,63 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.label {
+  font-size: 0.8125rem;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+
+.selectWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.select {
+  appearance: none;
+  padding: 0.45rem 2.1rem 0.45rem 0.85rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--paper-card);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--fast) var(--ease);
+}
+
+.select:hover {
+  border-color: var(--moss-soft);
+}
+
+.chevron {
+  position: absolute;
+  right: 0.75rem;
+  width: 11px;
+  height: 11px;
+  color: var(--ink-mute);
+  pointer-events: none;
+}
+
+.shuffle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--gold-soft);
+  border-radius: var(--radius-pill);
+  background: var(--gold-wash);
+  color: var(--ink-soft);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition:
+    background var(--fast) var(--ease),
+    color var(--fast) var(--ease);
+}
+
+.shuffle:hover {
+  background: var(--gold-soft);
+  color: var(--ink);
+}

@@ -1,0 +1,97 @@
+.form {
+  position: relative;
+  width: min(100%, 34rem);
+  margin-inline: auto;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.2rem 0.3rem 0.2rem 1.1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--paper-card);
+  box-shadow: var(--shadow-sm);
+  transition:
+    border-color var(--fast) var(--ease),
+    box-shadow var(--medium) var(--ease);
+}
+
+.field:focus-within {
+  border-color: var(--moss-soft);
+  box-shadow:
+    var(--shadow-md),
+    0 0 0 4px var(--moss-wash);
+}
+
+.icon {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  color: var(--ink-faint);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding-block: 0.85rem;
+  border: none;
+  background: none;
+  font-size: 0.9375rem;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--ink-faint);
+}
+
+.clear {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--ink-mute);
+  transition:
+    background var(--fast) var(--ease),
+    color var(--fast) var(--ease);
+}
+
+.clear:hover {
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+.submit {
+  flex: none;
+  padding: 0.62rem 1.25rem;
+  border-radius: var(--radius-pill);
+  background: var(--moss);
+  color: var(--paper);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition:
+    background var(--fast) var(--ease),
+    transform var(--fast) var(--ease);
+}
+
+.submit:hover {
+  background: var(--moss-deep);
+}
+
+.submit:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 480px) {
+  .submit {
+    padding-inline: 0.9rem;
+  }
+
+  .field {
+    padding-left: 0.85rem;
+  }
+}

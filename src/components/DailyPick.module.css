@@ -1,0 +1,197 @@
+.root {
+  position: relative;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  max-width: 17rem;
+  padding: 0.4rem 0.9rem 0.4rem 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(180deg, var(--paper-card), var(--paper-warm));
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  transition:
+    border-color var(--fast) var(--ease),
+    box-shadow var(--fast) var(--ease),
+    transform var(--fast) var(--ease);
+}
+
+.pill:hover {
+  border-color: var(--gold-soft);
+  box-shadow: var(--shadow-md);
+}
+
+.pill:active {
+  transform: translateY(1px);
+}
+
+.pillSpine {
+  width: 12px;
+  height: 30px;
+  flex: none;
+  border-radius: 2px;
+  background-color: var(--pick-binding);
+  box-shadow:
+    inset -2px 0 3px rgba(0, 0, 0, 0.3),
+    inset 2px 0 2px rgba(255, 255, 255, 0.18);
+}
+
+.pillText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.pillLabel {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--moss);
+}
+
+.pillTitle {
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Popover ---------------------------------------------------------------- */
+
+.card {
+  position: absolute;
+  top: calc(100% + 0.7rem);
+  right: 0;
+  z-index: 60;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1.1rem;
+  width: min(23rem, calc(100vw - 2rem));
+  padding: 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper-card);
+  box-shadow: var(--shadow-lg);
+  animation: pop var(--medium) var(--ease);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cardCover {
+  width: 80px;
+  align-self: start;
+  border-radius: 2px 4px 4px 2px;
+  box-shadow: var(--shadow-sm);
+}
+
+.cardBody {
+  min-width: 0;
+}
+
+.cardDate {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.cardTitle {
+  margin-top: 0.3rem;
+  font-size: 1.3rem;
+  line-height: 1.12;
+}
+
+.cardAuthor {
+  margin-top: 0.1rem;
+  font-size: 0.8125rem;
+  color: var(--ink-mute);
+}
+
+.cardGenre {
+  display: inline-block;
+  margin-top: 0.55rem;
+  padding: 0.16rem 0.6rem;
+  border: 1px solid var(--moss-soft);
+  border-radius: var(--radius-pill);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--moss-deep);
+  background: var(--moss-wash);
+}
+
+.cardInvite {
+  margin-top: 0.7rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.cardOpen {
+  margin-top: 0.85rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: var(--moss);
+  color: var(--paper);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: background var(--fast) var(--ease);
+}
+
+.cardOpen:hover {
+  background: var(--moss-deep);
+}
+
+@media (max-width: 720px) {
+  .pill {
+    max-width: 11.5rem;
+    padding-right: 0.75rem;
+  }
+}
+
+.pillShort {
+  display: none;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--moss);
+}
+
+@media (max-width: 440px) {
+  .pillTitle,
+  .pillLabel {
+    display: none;
+  }
+
+  .pillShort {
+    display: block;
+  }
+
+  .pill {
+    max-width: none;
+  }
+
+  .card {
+    right: auto;
+    left: 50%;
+    transform-origin: top center;
+    translate: -50% 0;
+  }
+}

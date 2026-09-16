@@ -1,0 +1,49 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--paper-card);
+  color: var(--ink-soft);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    background var(--fast) var(--ease),
+    border-color var(--fast) var(--ease),
+    color var(--fast) var(--ease);
+}
+
+.chip:hover {
+  border-color: var(--moss-soft);
+  color: var(--ink);
+}
+
+.selected {
+  border-color: var(--moss);
+  background: var(--moss);
+  color: var(--paper);
+}
+
+.selected:hover {
+  border-color: var(--moss-deep);
+  background: var(--moss-deep);
+  color: var(--paper);
+}
+
+.count {
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.6;
+}

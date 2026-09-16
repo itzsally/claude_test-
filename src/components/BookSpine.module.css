@@ -1,0 +1,134 @@
+.spine {
+  --lift: 0px;
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  width: calc(var(--spine-w) * var(--shelf-scale, 1) * 1px);
+  height: calc(var(--spine-h) * 100%);
+  padding: 0.55rem 0.2rem;
+  border-radius: 2px 2px 1px 1px;
+  background-color: var(--binding);
+  color: var(--ink-on-binding);
+  transform: translateY(var(--lift)) rotate(var(--lean));
+  transform-origin: bottom center;
+  transition:
+    transform var(--medium) var(--ease),
+    filter var(--medium) var(--ease);
+  box-shadow:
+    inset -3px 0 6px rgba(0, 0, 0, 0.26),
+    inset 3px 0 5px rgba(255, 255, 255, 0.12),
+    2px 2px 5px rgba(48, 36, 22, 0.24);
+  isolation: isolate;
+}
+
+/* Cloth grain, plus the shading of a rounded spine. */
+.spine::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.26) 0%,
+      rgba(255, 255, 255, 0.11) 22%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(0, 0, 0, 0.16) 82%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.04) 0 1px,
+      rgba(0, 0, 0, 0.035) 1px 2px
+    );
+}
+
+/* Raised binding ridges across the head and tail of the spine. */
+.ridged::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0 calc(100% / 7 - 3px),
+    rgba(0, 0, 0, 0.2) calc(100% / 7 - 3px) calc(100% / 7 - 1px),
+    rgba(255, 255, 255, 0.13) calc(100% / 7 - 1px) calc(100% / 7 + 1px),
+    rgba(0, 0, 0, 0) calc(100% / 7 + 1px) calc(100% / 7)
+  );
+}
+
+.band {
+  display: block;
+  width: 100%;
+  height: 0.7rem;
+  flex: none;
+  color: var(--foil);
+  opacity: 0.85;
+}
+
+.bandSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.label {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9em;
+  min-height: 0;
+  padding-block: 0.5rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  overflow: hidden;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--title-size, 0.9rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  min-width: 0;
+}
+
+.author {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  flex: none;
+}
+
+/* Lifted when hovered, focused, or tapped open on touch. */
+.active {
+  --lift: -22px;
+  --lean: 0deg;
+  filter: brightness(1.07);
+  box-shadow:
+    inset -3px 0 6px rgba(0, 0, 0, 0.2),
+    inset 3px 0 5px rgba(255, 255, 255, 0.16),
+    6px 14px 26px rgba(48, 36, 22, 0.3);
+}
+
+.spine:focus-visible {
+  outline: 2px solid var(--moss);
+  outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .active {
+    --lift: -14px;
+  }
+}
