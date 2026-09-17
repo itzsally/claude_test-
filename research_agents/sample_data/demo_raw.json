@@ -1,0 +1,69 @@
+{
+  "topic": "SAMPLE DATA (invented, for testing only): are standing desks actually worth it?",
+  "handover_summary": "This file is fabricated sample data shipped with the project so you can test agent 2 without paying for a real research run. The findings below are made up and the URLs are placeholders - do not cite them. Real runs write a file in this same shape to runs/<timestamp>-<topic>/raw.json.",
+  "findings": [
+    {
+      "claim": "Most long-term users end up alternating rather than standing all day.",
+      "evidence": "\"I stand maybe 2 hours out of 8 now. The people who stand all day burn out in a week.\" - 1.4k upvote comment",
+      "source_url": "https://www.reddit.com/r/ergonomics/comments/sample1/",
+      "source_type": "reddit",
+      "source_label": "r/ergonomics thread, 1.4k upvotes",
+      "sentiment": "mixed",
+      "confidence": "high"
+    },
+    {
+      "claim": "Reported back-pain relief is common but not universal.",
+      "evidence": "In a 220-comment thread, roughly two thirds described less lower-back pain; several said standing moved the pain to their knees and feet instead.",
+      "source_url": "https://www.reddit.com/r/standingdesks/comments/sample2/",
+      "source_type": "reddit",
+      "source_label": "r/standingdesks discussion, 220 comments",
+      "sentiment": "positive",
+      "confidence": "medium"
+    },
+    {
+      "claim": "An anti-fatigue mat is the accessory people regret not buying sooner.",
+      "evidence": "\"Desk was 400, mat was 40, the mat made the difference.\" Repeated by at least six separate commenters across two threads.",
+      "source_url": "https://www.reddit.com/r/ergonomics/comments/sample3/",
+      "source_type": "reddit",
+      "source_label": "r/ergonomics, multiple commenters",
+      "sentiment": "positive",
+      "confidence": "high"
+    },
+    {
+      "claim": "Cheap frames are the main source of complaints, not the concept.",
+      "evidence": "Wobble at standing height and motor failure after 18-24 months dominate the negative reviews of sub-200 frames.",
+      "source_url": "https://example-review-site.invalid/standing-desks",
+      "source_type": "other",
+      "source_label": "Aggregated review write-up (placeholder source)",
+      "sentiment": "negative",
+      "confidence": "medium"
+    },
+    {
+      "claim": "The calorie-burn argument is largely dismissed by people who have read the research.",
+      "evidence": "\"You burn about 8 extra calories an hour. That's a grape. Stand because sitting still all day feels bad, not to lose weight.\"",
+      "source_url": "https://www.reddit.com/r/fitness/comments/sample4/",
+      "source_type": "reddit",
+      "source_label": "r/fitness comment, 800 upvotes",
+      "sentiment": "negative",
+      "confidence": "high"
+    },
+    {
+      "claim": "Public Facebook coverage on this topic was thin and mostly promotional.",
+      "evidence": "site:facebook.com searches surfaced mainly seller pages and marketplace listings rather than discussion; group threads were not publicly readable.",
+      "source_url": "https://www.facebook.com/",
+      "source_type": "facebook",
+      "source_label": "Facebook public search (placeholder)",
+      "sentiment": "not_applicable",
+      "confidence": "high"
+    }
+  ],
+  "tool_calls": [
+    {"tool": "reddit_find_communities", "input": {"query": "standing desk ergonomics", "limit": 10}},
+    {"tool": "reddit_search_posts", "input": {"query": "standing desk worth it", "subreddit": null, "sort": "top", "time_filter": "year", "limit": 20}},
+    {"tool": "reddit_read_comments", "input": {"post_id": "sample1", "limit": 30}},
+    {"tool": "save_finding", "input": {"claim": "Most long-term users end up alternating rather than standing all day."}}
+  ],
+  "turns_used": 6,
+  "stopped_because": "finished",
+  "usage": {"input_tokens": 41230, "output_tokens": 3110, "cache_read_input_tokens": 28400, "web_search_requests": 5}
+}
